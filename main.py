@@ -25,6 +25,8 @@ def satisfies_condition(shape, x, y):
         return rect(x, y, data['h'], data['k'], data['l'],data['b'],data['t'])
     elif shape['name'] == 'circle':
         return circle(x, y, data['h'], data['k'], data['r'], data['t'])
+    elif shape['name'] == 'ellipse_filled':
+        return ellipse_filled(x, y, data['h'], data['k'], data['width'], data['height'])
 
 def pixel(x, y):
     '''

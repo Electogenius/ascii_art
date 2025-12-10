@@ -22,7 +22,8 @@ def add_shape():
         'circle_filled': ['h','k','r'],
         'rect_filled': ['h','k','l','b'],
         'rect': ['h','k','l','b','t'],
-        'circle': ['h','k','r','t']
+        'circle': ['h','k','r','t'],
+        'ellipse_filled': ['h', 'k', 'width', 'height']
     }
     parameternames = {
         'circle_filled':
@@ -32,7 +33,9 @@ def add_shape():
         'rect':
             ['X coordinate of top-left corner', 'Y coordinate of top-left corner', 'width', 'height', 'thickness'],
         'circle':
-            ['X coordinate of center of circle', 'Y coordinate of center of circle', 'radius', 'thickness']
+            ['X coordinate of center of circle', 'Y coordinate of center of circle', 'radius', 'thickness'],
+        'ellipse_filled':
+            ['X coordinate of center of ellipse', 'Y coordinate of center of ellipse', 'width of ellipse', 'height of ellipse'],
     }
     shapes = list(parameterdata.keys())
     print("Enter shape type:")

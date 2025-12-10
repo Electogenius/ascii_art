@@ -12,6 +12,13 @@ def circle_filled(x, y, h, k, r):
     else:
         return False
 
+def ellipse_filled(x, y, h, k, width, height):
+    a, b = width / 2, height / 2
+    if (x - h)**2/a**2 + (y - k)**2/b**2 <= 1:
+        return True
+    else:
+        return False
+
 def rect(x,y,h,k,l,b,t):
     lg=rect_filled(x, y, h-t, k-t, l+2*t, b+2*t)
     sm=rect_filled(x, y, h+t, k+t, l-2*t, b-2*t)
