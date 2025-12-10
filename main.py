@@ -44,7 +44,7 @@ def render_frame(x1, y1, w, h, zoom):
     '''
     Returns a string containing the rendered ASCII art of the scene.
 
-    x,y: coords of top left of frame
+    x1,y1: coords of bottom left of frame
     w,h: length and breadth of frame in characters
     zoom: distance in space covered by one character
     '''
@@ -54,7 +54,7 @@ def render_frame(x1, y1, w, h, zoom):
         for i in range(w):
             # apply zoom
             x = x1 + i / zoom
-            y = y1 + j / zoom
+            y = (h-j + y1) / zoom
             # double the pixel since each character is a rectangle,
             # but a pixel needs to roughly be a square
             result += pixel(x, y)*2

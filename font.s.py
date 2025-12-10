@@ -140,7 +140,7 @@ def character(h,k, w, char, shape):
         for x1 in range(8):
             bit = (row//(2**x1))%2
             if bit:
-                shapes.append(shape(h+x1*w, k+y1*w, w+epsilon,w+epsilon))
+                shapes.append(shape(h+x1*w, k-y1*w, w+epsilon,w+epsilon))
     return shapes
 
 def genrect(h,k,l,b):
@@ -149,13 +149,13 @@ def genrect(h,k,l,b):
 def text(string, width):
     l = []
     x = 2
-    y = 0
+    y = 10
     for char in string:
         l.extend(character(x, y, width,  char, genrect))
         x+=width*8
         if char == '\n':
             x= 0
-            y+=width*9
+            y-=width*9
     return l
 
 baseline = {
@@ -163,11 +163,14 @@ baseline = {
     "renderframe": {
         "corner": (-0.5,-0.5),
         "zoom": 1,
-        "size": (120,25)
+        "size": (70,20)
     },
     "world": []
 }
 
-baseline['world']=text("Hello,\nworld!", 1)
+baseline['world']=text("sasange", 1)
 
-with open("samples/font.py",'w') as f:f.write(str(baseline))
+from main import render
+print(render(baseline))
+#with open("samples/font.py",'w') as f:
+    #f.write(str(baseline))
