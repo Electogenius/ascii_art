@@ -1,5 +1,4 @@
-# NOT TO BE INCLUDED IN PROJECT
-# generates data forming text
+# Standalone python file that generates squares to form text
 # font source: dhepper/font8x8 (github)
 
 fontdata = [(0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00),
@@ -147,16 +146,16 @@ def character(h,k, w, char, shape):
 def genrect(h,k,l,b):
     return {'type':"shape",'name':"rect_filled",'data':{'h':h,'k':k,'l':l,'b':b},'color':'/'}
 
-def text(s, w):
+def text(string, width):
     l = []
     x = 2
     y = 0
-    for char in s:
-        l.extend(character(x, y, w,  char, genrect))
-        x+=w*8
+    for char in string:
+        l.extend(character(x, y, width,  char, genrect))
+        x+=width*8
         if char == '\n':
             x= 0
-            y+=w*9
+            y+=width*9
     return l
 
 baseline = {
